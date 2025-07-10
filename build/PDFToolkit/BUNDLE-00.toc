@@ -1,0 +1,3 @@
+([('PDFToolkit',
+   '/Users/devanshmaru/Desktop/Mtech/funf/pdf converter/dist/PDFToolkit',
+   'EXECUTABLE')],)
