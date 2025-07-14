@@ -11,13 +11,6 @@ A user-friendly desktop application for PDF manipulation with an intuitive graph
 - **Compress PDF**: Reduce PDF file size while maintaining quality
 - **PDF to Word**: Convert PDF documents to Microsoft Word format (.docx)
 
-## Installation
-
-### Download Pre-built Binaries
-
-Download the latest release for your operating system:
-- **macOS**: [Download PDFToolkit.app](https://github.com/marudevansh25111/PDFToolkit/releases)
-- **Windows**: [Download PDFToolkit.exe](https://github.com/marudevansh25111/PDFToolkit/releases)
 
 ### Run from Source
 
@@ -85,77 +78,6 @@ pyinstaller --onefile --windowed --name "PDFToolkit" --icon=icon.ico main.py
 pyinstaller --onefile --windowed --name "PDFToolkit" --add-data "assets;assets" --icon=icon.ico main.py
 
 # The built executable will be in dist/PDFToolkit.exe
-```
-
-### Build Configuration
-
-Create a `build.spec` file for more control:
-
-```python
-# PDFToolkit.spec
-import sys
-from PyInstaller.building.build_main import Analysis, PYZ, EXE, BUNDLE
-
-block_cipher = None
-
-a = Analysis(
-    ['main.py'],
-    pathex=[],
-    binaries=[],
-    datas=[('assets', 'assets')],
-    hiddenimports=[],
-    hookspath=[],
-    hooksconfig={},
-    runtime_hooks=[],
-    excludes=[],
-    win_no_prefer_redirects=False,
-    win_private_assemblies=False,
-    cipher=block_cipher,
-    noarchive=False,
-)
-
-pyz = PYZ(a.pure, a.zipped_data, cipher=block_cipher)
-
-exe = EXE(
-    pyz,
-    a.scripts,
-    a.binaries,
-    a.zipfiles,
-    a.datas,
-    [],
-    name='PDFToolkit',
-    debug=False,
-    bootloader_ignore_signals=False,
-    strip=False,
-    upx=True,
-    upx_exclude=[],
-    runtime_tmpdir=None,
-    console=False,
-    disable_windowed_traceback=False,
-    argv_emulation=False,
-    target_arch=None,
-    codesign_identity=None,
-    entitlements_file=None,
-    icon='icon.ico'  # Windows only
-)
-
-# macOS App Bundle
-if sys.platform == 'darwin':
-    app = BUNDLE(
-        exe,
-        name='PDFToolkit.app',
-        icon='icon.icns',  # macOS icon
-        bundle_identifier='com.marudevansh.pdftoolkit',
-        info_plist={
-            'CFBundleShortVersionString': '1.0.0',
-            'CFBundleVersion': '1.0.0',
-        },
-    )
-```
-
-Then build with:
-```bash
-pyinstaller PDFToolkit.spec
 ```
 
 ## Requirements
